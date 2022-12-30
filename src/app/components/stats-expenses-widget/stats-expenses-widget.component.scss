@@ -1,0 +1,17 @@
+.graph {
+  &__card {
+    max-width: 600px;
+    margin: 1.4em;
+    padding: 1em;
+  }
+
+  &__bar {
+    height: 10px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  &__descbar {
+    margin-top: 40px;
+  }
+}

@@ -1,0 +1,14 @@
+<mat-card class="graph__card">
+  <mat-card-title>Répartition des dépenses par catégories</mat-card-title>
+  <mat-card-content>
+    <div *ngIf="totalAmount == 0">
+      <h2>Vous n'avez pas encore effectué de dépenses.</h2>
+    </div>
+    <div *ngFor="let expensesCat of expensesByCategories  | keyvalue" class="graph">
+      <div *ngIf="totalAmount !== undefined && expensesCat !== undefined">
+        <span class="graph__descbar">{{expensesCat.key}}: {{expensesCat.value | currency : 'EUR'}} ({{(expensesCat.value / totalAmount * 100).toFixed(2)}}%)</span>
+        <div class="graph__bar" [style]="{width: (expensesCat.value / totalAmount * 100)+'%', backgroundColor: colorForExpenseType(expensesCat.key)}"></div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
