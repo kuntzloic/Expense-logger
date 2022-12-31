@@ -16,6 +16,8 @@ import { ExpensesComponent } from './components/expenses/expenses.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StatsExpensesWidgetComponent } from './components/stats-expenses-widget/stats-expenses-widget.component';
 import {MatCardModule} from '@angular/material/card';
+import { CategoryColorPipe } from './pipes/category-color.pipe';
+import { ExpenseComponent } from './components/expense/expense.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {MatCardModule} from '@angular/material/card';
     LandingPageComponent,
     NewExpenseComponent,
     ExpensesComponent,
-    StatsExpensesWidgetComponent
+    StatsExpensesWidgetComponent,
+    CategoryColorPipe,
+    ExpenseComponent
   ],
   imports: [
     BrowserModule,

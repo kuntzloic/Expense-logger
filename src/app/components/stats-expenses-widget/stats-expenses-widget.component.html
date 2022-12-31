@@ -6,8 +6,8 @@
     </div>
     <div *ngFor="let expensesCat of expensesByCategories  | keyvalue" class="graph">
       <div *ngIf="totalAmount !== undefined && expensesCat !== undefined">
-        <span class="graph__descbar">{{expensesCat.key}}: {{expensesCat.value | currency : 'EUR'}} ({{(expensesCat.value / totalAmount * 100).toFixed(2)}}%)</span>
-        <div class="graph__bar" [style]="{width: (expensesCat.value / totalAmount * 100)+'%', backgroundColor: colorForExpenseType(expensesCat.key)}"></div>
+        <span class="graph__descbar">{{expensesCat.key}}: {{expensesCat.value | currency : 'EUR'}} ({{((expensesCat.value / totalAmount) | percent : '1.2')}})</span>
+        <div class="graph__bar" [style]="{width: (expensesCat.value / totalAmount * 100)+'%', backgroundColor: (expensesCat.key | categoryColor)}"></div>
       </div>
     </div>
   </mat-card-content>

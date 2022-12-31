@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ExpensesService} from "../../services/expenses.service";
 import {Expense} from "../../models/Expense";
 
@@ -14,10 +14,5 @@ export class ExpensesComponent {
 
   ngOnInit(): void {
     this.expenses = this.expensesService.getAllExpenses();
-  }
-
-  deleteExpense(expense: Expense) {
-    console.log('delete expense : ' + expense.id);
-    this.expensesService.deleteExpenseById(expense.id);
   }
 }

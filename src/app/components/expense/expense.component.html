@@ -1,0 +1,19 @@
+<div class="expense">
+  <div class="expensegrid__firstcol">
+    <p class="date">{{ expense.date | date }}</p>
+    <p class="category">{{ expense.category }}</p>
+    <p class="amount">{{ expense.amount | currency:'EUR' }}</p>
+  </div>
+  <div class="expensegrid__secondcol">
+    <h2 class="title">{{ expense.title }}</h2>
+    <p class="description">{{ expense.description }}</p>
+  </div>
+  <div class="expensegrid__thirdcol">
+    <button mat-mini-fab color="warn" (click)="deleteExpense(expense)" aria-label="Delete the expense">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-mini-fab color="accent" aria-label="Edit the expense">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
+</div>
