@@ -1,0 +1,43 @@
+<div *ngIf="expense != null">
+  <div class="flex-container">
+    <div class="form-container">
+      <form [formGroup]="expenseForm">
+        <h2>Nouvelle dépense</h2>
+        <div *ngIf="expenseForm.invalid">
+          <span class="help-block">Un champ obligatoire n'est pas complété...</span>
+        </div>
+        <div class="form-group">
+          <label for="title">Titre<sup>*</sup></label>
+          <input id="title" type="text" formControlName="title">
+        </div>
+        <div class="form-group">
+          <label for="date">Date<sup>*</sup></label>
+          <input id="date" type="date" formControlName="date">
+        </div>
+        <div class="form-group">
+          <label for="amount">Prix<sup>*</sup></label>
+          <input id="amount" type="number" min="0.01" max="999999999999999999999" step="0.01" formControlName="amount">
+        </div>
+        <div class="form-group">
+          <label for="category">Catégorie<sup>*</sup></label>
+          <select id="category" formControlName="category">
+            <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" type="text" formControlName="description" rows="3"></textarea>
+        </div>
+        <div class="action-buttons">
+          <button type="submit" (click)="onSubmitForm()" [disabled]="expenseForm.invalid">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+    <div class="expense-preview" *ngIf="expensePreview$ | async as expense">
+      <app-expense [expense]="expense"></app-expense>
+    </div>
+  </div>
+</div>
+<div class="expenseNotFound" *ngIf="expense == null">
+  <p>La dépense que vous cherchez à modifier n'existe pas</p>
+</div>

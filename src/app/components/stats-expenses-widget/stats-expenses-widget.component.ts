@@ -17,6 +17,5 @@ export class StatsExpensesWidgetComponent {
   ngOnInit(): void {
     this.expensesByCategories = this.expensesService.getExpensesByCategories();
     this.totalAmount = this.expensesService.getExpenseTotalAmount();
-    console.log(this.expensesByCategories);
   }
 }

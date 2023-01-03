@@ -17,11 +17,11 @@ export class Expense {
 }
 
 export enum ExpenseType {
-  FOOD = 'Food',
+  FOOD = 'Nourriture',
   TRANSPORT = 'Transport',
-  HOUSING = 'Housing',
-  CLOTHES = 'Clothes',
-  HEALTH = 'Health',
-  ENTERTAINMENT = 'Entertainment',
-  OTHER = 'Other'
+  HOUSING = 'Logement',
+  CLOTHES = 'Vêtements',
+  HEALTH = 'Santé',
+  ENTERTAINMENT = 'Divertissement',
+  OTHER = 'Autre'
 }

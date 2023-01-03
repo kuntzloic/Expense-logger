@@ -1,19 +1,15 @@
-<div class="expense">
-  <div class="expensegrid__firstcol">
-    <p class="date">{{ expense.date | date }}</p>
-    <p class="category">{{ expense.category }}</p>
-    <p class="amount">{{ expense.amount | currency:'EUR' }}</p>
+<div *ngIf="expense != null" class="lcol__grid">
+  <div class="lcol__grid__firstcol">
+    <p class="date">{{ expense.date | date:'dd/MM/yyyy' }}</p>
+    <p class="category" [style]="{backgroundColor: (expense.category | categoryColor)}">{{ expense.category }}</p>
+    <p class="amount">{{ expense.amount | currency:'EUR':'symbol':'1.2-2' }}</p>
   </div>
-  <div class="expensegrid__secondcol">
+  <div class="lcol__grid__secondcol">
     <h2 class="title">{{ expense.title }}</h2>
-    <p class="description">{{ expense.description }}</p>
+    <p *ngIf="expense.description" class="description">{{ expense.description }}</p>
+    <p *ngIf="!expense.description" class="description__notdefined">Pas de description</p>
   </div>
-  <div class="expensegrid__thirdcol">
-    <button mat-mini-fab color="warn" (click)="deleteExpense(expense)" aria-label="Delete the expense">
-      <mat-icon>delete</mat-icon>
-    </button>
-    <button mat-mini-fab color="accent" aria-label="Edit the expense">
-      <mat-icon>edit</mat-icon>
-    </button>
-  </div>
+</div>
+<div *ngIf="expense == null">
+  <p>There is no expense to display.</p>
 </div>

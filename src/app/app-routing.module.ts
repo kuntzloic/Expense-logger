@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import {LandingPageComponent} from "./components/landing-page/landing-page.component";
 import {NewExpenseComponent} from "./components/new-expense/new-expense.component";
 import {ExpensesComponent} from "./components/expenses/expenses.component";
+import {EditExpenseComponent} from "./components/edit-expense/edit-expense.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: LandingPageComponent },
   { path: 'new-expense', component: NewExpenseComponent},
-  { path: 'expenses', component: ExpensesComponent }
+  { path: 'edit-expense/:id', component: EditExpenseComponent},
+  { path: 'expenses', component: ExpensesComponent },
 ];
 
 @NgModule({

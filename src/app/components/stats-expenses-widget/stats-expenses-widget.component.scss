@@ -1,8 +1,16 @@
 .graph {
   &__card {
-    max-width: 600px;
-    margin: 1.4em;
+    width: 35vw;
+    height: 100%;
     padding: 1em;
+    flex-grow : 1;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+
+    & h5 {
+      font-size: 1.15em;
+      font-weight: 500;
+      margin-bottom: 0.5em;
+    }
   }
 
   &__bar {

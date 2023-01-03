@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {ExpensesService} from "../../services/expenses.service";
 import {Expense} from "../../models/Expense";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-expenses',
@@ -10,9 +11,20 @@ import {Expense} from "../../models/Expense";
 export class ExpensesComponent {
   expenses!: Expense[];
 
-  constructor(private expensesService: ExpensesService) {}
+  constructor(private expensesService: ExpensesService, private router: Router) {}
 
   ngOnInit(): void {
     this.expenses = this.expensesService.getAllExpenses();
   }
+
+  onDeleteExpense(expectedExpense: Expense) {
+    console.log('delete expense : ' + expectedExpense.id);
+    this.expensesService.deleteExpenseById(expectedExpense.id);
+  }
+
+  onEditExpense(expectedExpense: Expense) {
+    console.log('edit expense : ' + expectedExpense.id);
+    this.router.navigateByUrl('edit-expense/'+expectedExpense.id);
+  }
+
 }

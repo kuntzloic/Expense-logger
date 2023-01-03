@@ -1,67 +1,31 @@
 .expense {
-  border: black 1px solid;
-  padding: 0.5rem 1rem;
-  margin: 30px 30px;
-  border-radius: 0.6em;
-  display: grid;
-  grid-template-columns: [first] 12% [line2] 74% [end];
-
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease-in-out;
-
-  &:hover {
-    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.8);
-  }
-
-  & .title {
-    font-size: 2em;
-    margin: 0.3em 0;
-  }
-
-  & div {
-    background-color: white;
-  }
-
-  & .expensegrid {
-    &__firstcol {
-      grid-column: 1 / 2;
+  display: flex;
+  padding: 1em;
+  grid-template-columns: [first] 80% [line2] 20% [end];
+  &grid {
+    &__leftcol {
+      //grid-column: 1 / 2;
+      width: 100%;
+    }
+    &__rightcol {
+      //grid-column: 2 / 3;
+      padding: 0 0.6em;
+      background-color: white;
+      border-radius: 1em;
+      margin-left: 1em;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border-right: black 1px solid;
-      & .amount {
-        color: red;
-        font-size: 1.5em;
-        font-weight: bold;
-      }
-
-      & .category {
-        font-size: 0.7em;
-        font-weight: bold;
-        margin: 0;
-        color: grey;
-      }
-
-      & .date {
-        font-size: 0.8em;
-        margin: 0;
-      }
-    }
-    &__secondcol {
-      grid-column: 2 / 3;
-      padding-left: 1em;
-    }
-
-    &__thirdcol {
-      grid-column: 3 / 4;
-      border-left: black 1px solid;
-      background-color: transparent;
-      display: flex;
-      flex-direction: row;
-      gap: 1em;
-      justify-content: center;
-      align-items: center;
+      justify-content: space-evenly;
+      align-items: start;
     }
   }
+}
+
+.card__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: stretch;
+  margin: 1.4em 1.4em 2.8em 1.4em;
 }

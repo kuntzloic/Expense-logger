@@ -13,9 +13,4 @@ export class ExpenseComponent {
 
   constructor(private expensesService: ExpensesService) {}
 
-
-  deleteExpense(expectedExpense: Expense) {
-    console.log('delete expense : ' + expectedExpense.id);
-    this.expensesService.deleteExpenseById(expectedExpense.id);
-  }
 }

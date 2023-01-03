@@ -18,6 +18,11 @@ import { StatsExpensesWidgetComponent } from './components/stats-expenses-widget
 import {MatCardModule} from '@angular/material/card';
 import { CategoryColorPipe } from './pipes/category-color.pipe';
 import { ExpenseComponent } from './components/expense/expense.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { EditExpenseComponent } from './components/edit-expense/edit-expense.component';
+import { TotalExpensesWidgetComponent } from './components/total-expenses/total-expenses-widget.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,9 @@ import { ExpenseComponent } from './components/expense/expense.component';
     ExpensesComponent,
     StatsExpensesWidgetComponent,
     CategoryColorPipe,
-    ExpenseComponent
+    ExpenseComponent,
+    EditExpenseComponent,
+    TotalExpensesWidgetComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +43,10 @@ import { ExpenseComponent } from './components/expense/expense.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR' }

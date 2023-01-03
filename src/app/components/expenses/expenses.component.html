@@ -1,23 +1,18 @@
 <div *ngIf="expenses.length == 0">
   <h2>Vous n'avez pas encore effectué de dépenses.</h2>
 </div>
-<app-stats-expenses-widget *ngIf="expenses.length != 0"></app-stats-expenses-widget>
-<app-expense *ngFor="let expense of expenses" [expense]="expense"></app-expense>
-
-<!--  <div class="expensegrid__firstcol">-->
-<!--    <p class="date">{{ expense.date | date }}</p>-->
-<!--    <p class="category">{{ expense.category }}</p>-->
-<!--    <p class="amount">{{ expense.amount | currency:'EUR' }}</p>-->
-<!--  </div>-->
-<!--  <div class="expensegrid__secondcol">-->
-<!--    <h2 class="title">{{ expense.title }}</h2>-->
-<!--    <p class="description">{{ expense.description }}</p>-->
-<!--  </div>-->
-<!--  <div class="expensegrid__thirdcol">-->
-<!--    <button mat-mini-fab color="warn" (click)="deleteExpense(expense)" aria-label="Delete the expense">-->
-<!--      <mat-icon>delete</mat-icon>-->
-<!--    </button>-->
-<!--    <button mat-mini-fab color="accent" aria-label="Edit the expense">-->
-<!--      <mat-icon>edit</mat-icon>-->
-<!--    </button>-->
-<!--  </div>-->
+<div class="card__row">
+  <app-stats-expenses-widget *ngIf="expenses.length != 0"></app-stats-expenses-widget>
+  <app-total-expenses-widget></app-total-expenses-widget>
+</div>
+<div class="expense" *ngFor="let expense of expenses">
+  <app-expense [expense]="expense" class="expensegrid__leftcol"></app-expense>
+  <div class="expensegrid__rightcol">
+    <button mat-mini-fab color="warn" (click)="onDeleteExpense(expense)" aria-label="Delete the expense">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-mini-fab color="accent" (click)="onEditExpense(expense)" aria-label="Edit the expense">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
+</div>
