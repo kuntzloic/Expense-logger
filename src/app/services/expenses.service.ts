@@ -192,23 +192,21 @@ export class ExpensesService {
   }
 
   sortByDate() {
-    let expensesToSort = this.expenses.concat(); // Clone the array
-    expensesToSort.sort((a, b) => {
+    this.expenses.sort((a, b) => {
         return a.date.getTime() - b.date.getTime();
       }
     );
-    return expensesToSort;
   }
 
   sortByCategory() {
-    let expensesToSort = this.expenses.concat(); // Clone the array
-    expensesToSort.sort((a, b) => a.category.localeCompare(b.category));
-    return expensesToSort;
+    this.expenses.sort((a, b) => a.category.localeCompare(b.category));
   }
 
   sortAlphabetically() {
-    let expensesToSort = this.expenses.concat(); // Clone the array
-    expensesToSort.sort((a, b) => a.title.localeCompare(b.title));
-    return expensesToSort;
+    this.expenses.sort((a, b) => a.title.localeCompare(b.title));
+  }
+
+  sortByPrice() {
+    this.expenses.sort((a, b) => a.amount - b.amount);
   }
 }

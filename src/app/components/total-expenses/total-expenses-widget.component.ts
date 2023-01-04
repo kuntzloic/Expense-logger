@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-total-expenses-widget',
@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./total-expenses-widget.component.scss']
 })
 export class TotalExpensesWidgetComponent {
-
 }

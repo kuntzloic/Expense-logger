@@ -23,6 +23,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { EditExpenseComponent } from './components/edit-expense/edit-expense.component';
 import { TotalExpensesWidgetComponent } from './components/total-expenses/total-expenses-widget.component';
+import { SortButtonsComponent } from './components/sort-buttons/sort-buttons.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { TotalExpensesWidgetComponent } from './components/total-expenses/total-
     ExpenseComponent,
     EditExpenseComponent,
     TotalExpensesWidgetComponent,
+    SortButtonsComponent,
   ],
   imports: [
     BrowserModule,

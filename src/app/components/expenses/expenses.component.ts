@@ -1,7 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {ExpensesService} from "../../services/expenses.service";
-import {Expense} from "../../models/Expense";
-import {Router} from "@angular/router";
+import {Expense, ExpenseType} from "../../models/Expense";
 
 @Component({
   selector: 'app-expenses',
@@ -10,32 +9,18 @@ import {Router} from "@angular/router";
 })
 export class ExpensesComponent {
   expenses!: Expense[];
+  expensesByCategories!: Map<ExpenseType, number>;
+  totalAmount?: number;
 
-  constructor(private expensesService: ExpensesService, private router: Router) {}
+  constructor(private expensesService: ExpensesService) {}
 
   ngOnInit(): void {
+    this.updateExpenses();
+  }
+
+  updateExpenses() {
+    this.expensesByCategories = this.expensesService.getExpensesByCategories();
+    this.totalAmount = this.expensesService.getExpenseTotalAmount();
     this.expenses = this.expensesService.getAllExpenses();
-  }
-
-  onDeleteExpense(expectedExpense: Expense) {
-    console.log('delete expense : ' + expectedExpense.id);
-    this.expensesService.deleteExpenseById(expectedExpense.id);
-  }
-
-  onEditExpense(expectedExpense: Expense) {
-    console.log('edit expense : ' + expectedExpense.id);
-    this.router.navigateByUrl('edit-expense/'+expectedExpense.id);
-  }
-
-  onSortByCategory() {
-    this.expenses = this.expensesService.sortByCategory();
-  }
-
-  onSortByDate() {
-    this.expenses = this.expensesService.sortByDate();
-  }
-
-  onSortAlphabetically() {
-    this.expenses = this.expensesService.sortAlphabetically();
   }
 }

@@ -1,0 +1,40 @@
+.sort_bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center!important;
+  justify-content: start;
+  column-gap: 0.5em;
+  padding: 0.5em 1em;
+  border-radius: 3em;
+  cursor: pointer;
+  margin-left: 1em;
+  background-color: white;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+
+  &__titre {
+    margin: 0;
+  }
+}
+
+.sort_buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: start;
+  & div {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: start;
+    column-gap: 0.5em;
+    padding: 0.5em 1em;
+    border-radius: 3em;
+    cursor: pointer;
+    margin: 0 1em;
+    background-color: white;
+    transition-duration: 0.4s;
+    &:hover {
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+    }
+  }
+}

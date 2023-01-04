@@ -3,35 +3,11 @@
 </div>
 <div *ngIf="expenses.length > 0">
   <div class="card__row">
-    <app-stats-expenses-widget *ngIf="expenses.length != 0"></app-stats-expenses-widget>
+    <app-stats-expenses-widget [expensesByCategories]="expensesByCategories" [totalAmount]="totalAmount" *ngIf="expenses.length != 0"></app-stats-expenses-widget>
     <app-total-expenses-widget></app-total-expenses-widget>
   </div>
-  <div class="sort_buttons">
-    <div class="sort_bar">
-      <p class="sort_bar__titre">Trier par:</p>
-      <div class="sort_bar__category" (click)="onSortByCategory()">
-        <mat-icon>sort</mat-icon>
-        Catégorie
-      </div>
-      <div class="sort_buttons__date" (click)="onSortByDate()">
-        <mat-icon>date_range</mat-icon>
-        Date
-      </div>
-      <div class="sort_buttons__az" (click)="onSortAlphabetically()">
-        <mat-icon>sort_by_alpha</mat-icon>
-        Ordre Alphabétique
-      </div>
-    </div>
-  </div>
+  <app-sort-buttons [expenses]="expenses" (updateExpensesEvent)="updateExpenses()"></app-sort-buttons>
   <div class="expense" *ngFor="let expense of expenses">
-    <app-expense [expense]="expense" class="expensegrid__leftcol"></app-expense>
-    <div class="expensegrid__rightcol">
-      <button mat-mini-fab color="warn" (click)="onDeleteExpense(expense)" aria-label="Delete the expense">
-        <mat-icon>delete</mat-icon>
-      </button>
-      <button mat-mini-fab color="accent" (click)="onEditExpense(expense)" aria-label="Edit the expense">
-        <mat-icon>edit</mat-icon>
-      </button>
-    </div>
+    <app-expense [expense]="expense" (updateExpensesEvent)="updateExpenses()"></app-expense>
   </div>
 </div>

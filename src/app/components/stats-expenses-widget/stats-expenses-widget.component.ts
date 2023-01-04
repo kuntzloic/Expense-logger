@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ExpensesService} from "../../services/expenses.service";
 import {ExpenseType} from "../../models/Expense";
 
@@ -11,11 +11,9 @@ export class StatsExpensesWidgetComponent {
   constructor(private expensesService: ExpensesService) {
   }
 
-  expensesByCategories?: Map<ExpenseType, number>;
-  totalAmount?: number;
+  @Input() expensesByCategories!: Map<ExpenseType, number>;
+  @Input() totalAmount?: number;
 
   ngOnInit(): void {
-    this.expensesByCategories = this.expensesService.getExpensesByCategories();
-    this.totalAmount = this.expensesService.getExpenseTotalAmount();
   }
 }

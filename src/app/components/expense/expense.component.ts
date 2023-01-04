@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Expense} from "../../models/Expense";
 import {ExpensesService} from "../../services/expenses.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-expense',
@@ -10,7 +11,16 @@ import {ExpensesService} from "../../services/expenses.service";
 export class ExpenseComponent {
 
   @Input() expense!: Expense;
+  @Output() updateExpensesEvent = new EventEmitter<number>();
 
-  constructor(private expensesService: ExpensesService) {}
+  constructor(private expensesService: ExpensesService, private router: Router) {}
 
+  onDeleteExpense() {
+    this.expensesService.deleteExpenseById(this.expense.id);
+    this.updateExpensesEvent.emit();
+  }
+
+  onEditExpense() {
+    this.router.navigateByUrl('edit-expense/'+ this.expense.id);
+  }
 }
