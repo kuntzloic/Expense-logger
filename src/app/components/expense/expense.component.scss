@@ -18,16 +18,31 @@
     & .date {
       font-size: 0.7rem;
       color: #525252;
+      border-top-right-radius: 0.7em;
+      border-top-left-radius: 0.7em;
+      margin: 0;
+      border-top: #eaeaea solid 1px;
+      border-left: #eaeaea solid 1px;
+      border-right: #eaeaea solid 1px;
     }
 
     & .category {
       color: white;
       padding: 0.25em 0.8em;
-      border-radius: 8em;
+      border-bottom-left-radius: 0.3em;
+      border-bottom-right-radius: 0.3em;
+      border-bottom: #eaeaea solid 1px;
+      border-left: #eaeaea solid 1px;
+      border-right: #eaeaea solid 1px;
     }
 
     & .amount {
       font-weight: bold;
+      box-shadow: 0 0 10px 0 rgba(0,0,0,0.25);
+      margin: 0 auto;
+      padding: 0.25em 0.8em;
+      border-radius: 8em;
+      width: 30%;
     }
   }
 

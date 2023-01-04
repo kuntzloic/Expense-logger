@@ -27,4 +27,15 @@ export class ExpensesComponent {
     this.router.navigateByUrl('edit-expense/'+expectedExpense.id);
   }
 
+  onSortByCategory() {
+    this.expenses = this.expensesService.sortByCategory();
+  }
+
+  onSortByDate() {
+    this.expenses = this.expensesService.sortByDate();
+  }
+
+  onSortAlphabetically() {
+    this.expenses = this.expensesService.sortAlphabetically();
+  }
 }

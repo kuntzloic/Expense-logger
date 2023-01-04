@@ -190,4 +190,25 @@ export class ExpensesService {
       throw new Error('Expense not found');
     }
   }
+
+  sortByDate() {
+    let expensesToSort = this.expenses.concat(); // Clone the array
+    expensesToSort.sort((a, b) => {
+        return a.date.getTime() - b.date.getTime();
+      }
+    );
+    return expensesToSort;
+  }
+
+  sortByCategory() {
+    let expensesToSort = this.expenses.concat(); // Clone the array
+    expensesToSort.sort((a, b) => a.category.localeCompare(b.category));
+    return expensesToSort;
+  }
+
+  sortAlphabetically() {
+    let expensesToSort = this.expenses.concat(); // Clone the array
+    expensesToSort.sort((a, b) => a.title.localeCompare(b.title));
+    return expensesToSort;
+  }
 }
