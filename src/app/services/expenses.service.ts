@@ -18,7 +18,7 @@ export class ExpensesService {
       category: ExpenseType.FOOD,
       description: '3 Croissants et deux pains au chocolat'
     },
-    {id: 2, title: 'Bus', date: new Date(), amount: 4.79, category: ExpenseType.TRANSPORT, description: 'Bus ticket'},
+    {id: 2, title: 'Bus', date: new Date(), amount: 4.79, category: ExpenseType.TRANSPORT, description: 'Ticket de Bus Marseille - Argelès'},
     {
       id: 3,
       title: 'Cinema',
