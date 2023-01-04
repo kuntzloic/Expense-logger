@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 export class ExpenseComponent {
 
   @Input() expense!: Expense;
+  @Input() enableButtons!: boolean;
   @Output() updateExpensesEvent = new EventEmitter<number>();
 
   constructor(private expensesService: ExpensesService, private router: Router) {}

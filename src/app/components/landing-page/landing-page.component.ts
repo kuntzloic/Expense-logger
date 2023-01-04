@@ -8,10 +8,16 @@ import {ExpensesService} from "../../services/expenses.service";
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent {
-  public expense: Expense;
+  expense: Expense;
+  expensesByCategories!: Map<ExpenseType, number>;
+  totalAmount!: number;
+  amountThisMonth!: number;
 
   constructor(private expensesService: ExpensesService) {
     this.expense = new Expense(1, 'test', new Date(), 3, ExpenseType.OTHER, 'test');
+    this.expensesByCategories = this.expensesService.getExpensesByCategories();
+    this.totalAmount = this.expensesService.getExpenseTotalAmount();
+    this.amountThisMonth = this.expensesService.getExpenseTotalAmountThisMonth();
   }
 
   ngOnInit(): void {

@@ -209,4 +209,14 @@ export class ExpensesService {
   sortByPrice() {
     this.expenses.sort((a, b) => a.amount - b.amount);
   }
+
+  getExpenseTotalAmountThisMonth() {
+    let totalAmount = 0;
+    this.expenses.forEach(expense => {
+      if (expense.date.getMonth() === new Date().getMonth()) {
+        totalAmount += expense.amount;
+      }
+    });
+    return totalAmount;
+  }
 }

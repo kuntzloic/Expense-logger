@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-total-expenses-widget',
@@ -6,4 +6,9 @@ import {Component} from '@angular/core';
   styleUrls: ['./total-expenses-widget.component.scss']
 })
 export class TotalExpensesWidgetComponent {
+  @Input() totalAmount?: number;
+  @Input() amountThisMonth?: number;
+
+  constructor() { }
+
 }

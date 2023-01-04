@@ -4,10 +4,10 @@
 <div *ngIf="expenses.length > 0">
   <div class="card__row">
     <app-stats-expenses-widget [expensesByCategories]="expensesByCategories" [totalAmount]="totalAmount" *ngIf="expenses.length != 0"></app-stats-expenses-widget>
-    <app-total-expenses-widget></app-total-expenses-widget>
+    <app-total-expenses-widget [amountThisMonth]="amountThisMonth" [totalAmount]="totalAmount"></app-total-expenses-widget>
   </div>
   <app-sort-buttons [expenses]="expenses" (updateExpensesEvent)="updateExpenses()"></app-sort-buttons>
   <div class="expense" *ngFor="let expense of expenses">
-    <app-expense [expense]="expense" (updateExpensesEvent)="updateExpenses()"></app-expense>
+    <app-expense [expense]="expense" [enableButtons]="true" (updateExpensesEvent)="updateExpenses()"></app-expense>
   </div>
 </div>

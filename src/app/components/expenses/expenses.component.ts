@@ -10,7 +10,8 @@ import {Expense, ExpenseType} from "../../models/Expense";
 export class ExpensesComponent {
   expenses!: Expense[];
   expensesByCategories!: Map<ExpenseType, number>;
-  totalAmount?: number;
+  totalAmount!: number;
+  amountThisMonth!: number;
 
   constructor(private expensesService: ExpensesService) {}
 
@@ -22,5 +23,6 @@ export class ExpensesComponent {
     this.expensesByCategories = this.expensesService.getExpensesByCategories();
     this.totalAmount = this.expensesService.getExpenseTotalAmount();
     this.expenses = this.expensesService.getAllExpenses();
+    this.amountThisMonth = this.expensesService.getExpenseTotalAmountThisMonth();
   }
 }
