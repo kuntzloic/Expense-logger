@@ -1,6 +1,9 @@
-<div>
+<div class="card__row">
   <app-stats-expenses-widget [totalAmount]="totalAmount"
                              [expensesByCategories]="expensesByCategories"></app-stats-expenses-widget>
-  <app-total-expenses-widget [totalAmount]="totalAmount" [amountThisMonth]="amountThisMonth"></app-total-expenses-widget>
+  <app-total-expenses-widget [totalAmount]="totalAmount"
+                             [amountThisMonth]="amountThisMonth"></app-total-expenses-widget>
 </div>
-<app-expense [expense]="expense"></app-expense>
+<div class="last-expense">
+  <app-most-recent-expense (updateExpensesEvent)="updateExpenses()"></app-most-recent-expense>
+</div>

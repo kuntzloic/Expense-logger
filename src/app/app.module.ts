@@ -24,6 +24,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { EditExpenseComponent } from './components/edit-expense/edit-expense.component';
 import { TotalExpensesWidgetComponent } from './components/total-expenses/total-expenses-widget.component';
 import { SortButtonsComponent } from './components/sort-buttons/sort-buttons.component';
+import { MostRecentExpenseComponent } from './components/most-recent-expense/most-recent-expense.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SortButtonsComponent } from './components/sort-buttons/sort-buttons.com
     EditExpenseComponent,
     TotalExpensesWidgetComponent,
     SortButtonsComponent,
+    MostRecentExpenseComponent,
   ],
   imports: [
     BrowserModule,

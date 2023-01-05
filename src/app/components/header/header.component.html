@@ -1,5 +1,12 @@
 <nav>
-  <a [routerLink]="['/']">Dashboard</a>
-  <a [routerLink]="['/expenses']">Dépenses</a>
-  <a [routerLink]="['/new-expense']">Nouvelle dépense</a>
+  <div class="staticItems">
+    <h1 (click)="goToDashboard()">Calculateur de dépenses</h1>
+    <mat-icon (click)="toggleMenu()">menu</mat-icon>
+  </div>
+  <div [class]="{'menuClosed': !displayMenu}" class="linksItems">
+    <a (click)="toggleMenu()" [routerLink]="['/']">Dashboard</a>
+    <a (click)="toggleMenu()" [routerLink]="['/expenses']">Dépenses</a>
+    <a (click)="toggleMenu()" [routerLink]="['/new-expense']">Nouvelle
+      dépense</a>
+  </div>
 </nav>

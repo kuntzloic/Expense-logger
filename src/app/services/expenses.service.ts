@@ -128,7 +128,14 @@ export class ExpensesService {
   }
 
   getLastExpense(): Expense {
-    return this.expenses[this.expenses.length - 1];
+    //Find the expense with the highest date
+    let lastExpense = this.expenses[0];
+    this.expenses.forEach(expense => {
+      if (expense.date.getTime() > lastExpense.date.getTime()) {
+        lastExpense = expense;
+      }
+    });
+    return lastExpense;
   }
 
   getExpensesByCategories(): Map<ExpenseType, number> {
