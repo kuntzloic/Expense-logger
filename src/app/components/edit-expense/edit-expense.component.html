@@ -38,6 +38,6 @@
     </div>
   </div>
 </div>
-<div class="expenseNotFound" *ngIf="expense == null">
-  <p>La dépense que vous cherchez à modifier n'existe pas</p>
+<div *ngIf="expense == null">
+  <p class="noExpense">La dépense que vous cherchez à modifier n'existe pas</p>
 </div>

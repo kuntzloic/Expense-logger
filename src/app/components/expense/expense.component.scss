@@ -133,3 +133,15 @@
     height: 100%;
   }
 }
+
+.noExpense {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  color: #6c6c6c;
+  font-size: 1.5em;
+  font-weight: lighter;
+}
