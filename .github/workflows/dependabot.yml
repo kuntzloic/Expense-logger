@@ -1,0 +1,26 @@
+name: Dependabot auto update dependencies
+run-name: ${{ github.actor }} is updating dependencies via GitHub Actions 🚀
+on: [push]
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: Install dependencies
+        run: npm install
+      - name: Update dependencies
+        run: npm update
+      - name: Commit changes
+        run: |
+          git config --local user.email "kuntz.loic57@gmail.com"
+            git config --local user.name "dependabot[bot]"
+            git add .
+            git commit -m "Update dependencies"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: dependabot-setup
