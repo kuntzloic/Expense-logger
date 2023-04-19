@@ -12,7 +12,6 @@ nav {
     column-gap: 0.5em;
     align-items: center;
     padding-bottom: 1em;
-    border-bottom: #e0e0e0 1px solid;
     @media screen and (max-width: 768px) {
       width: 100%;
     }
@@ -22,8 +21,8 @@ nav {
     margin: 0;
     padding: 0.3em;
     border-radius: 0.3em;
-    color: #117cbd;
-    border-bottom: 2px solid #117cbd;
+    color: white;
+    border-bottom: 2px solid white;
     font-weight: bolder;
     cursor: pointer;
   }
@@ -35,15 +34,15 @@ nav {
       font-weight: 600;
       padding: 0 1rem;
       transition: all 0.3s ease-in-out;
-      color: #117cbd;
+      color: #ffffff;
 
       &:hover {
-        color: #69b5e0;
+        color: #adadad;
       }
     }
   }
 
-  background-color: #ffffff;
+  background-color: #3a3a3a;
   padding: 1em 0.5em 0 0.5em;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
 
@@ -62,7 +61,7 @@ nav {
       }
 
       & a {
-        color: black;
+        color: white;
         padding: 1em;
       }
     }
@@ -72,6 +71,8 @@ nav {
       padding: 0.3em;
       transform: scale(1.2);
       border: 1px solid #e0e0e0;
+      fill: white;
+      color: white;
       border-radius: 0.3em;
     }
   }

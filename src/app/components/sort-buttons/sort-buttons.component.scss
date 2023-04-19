@@ -1,7 +1,7 @@
 .sort_bar {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
   column-gap: 0.5em;
   padding: 0 1em;
   cursor: pointer;
@@ -26,11 +26,11 @@
 .sort_buttons {
   display: flex;
   flex-direction: row;
-  align-items: end;
+  align-items: flex-end;
   justify-content: center;
   & div {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     column-gap: 0.5em;
     padding: 0.3em 1em;
     @media screen and (max-width:768px) {
