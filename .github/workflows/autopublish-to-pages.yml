@@ -1,0 +1,28 @@
+name: Autodeploy Github Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v2
+          - uses: actions/setup-node@v1
+            with:
+              node-version: 18.x
+          - name: Install dependencies
+            run: npm install
+          - name: Install angular cli
+            run: npm install -g @angular/cli
+          - name: Build angular app
+            run: ng build --base-href "https://kuntzloic.github.io/Expense-logger/"
+          # Deploy on the gh-pages branch
+          - name: Deploy to gh-pages
+            uses: peaceiris/actions-gh-pages@v3
+            with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              publish_dir: ./dist/flowers
+              publish_branch: gh-pages
